@@ -1,3 +1,41 @@
+-- Alerts
+
+function showAlert(message, beep, duration)
+    AddTextEntry('DOM_ALERT', message)
+
+    BeginTextCommandDisplayHelp('DOM_HELP')
+    EndTextCommandDisplayHelp(0, false, beep, duration)
+end
+
+RegisterCommand('testAlert', function(_, _, rawCommand)
+    showAlert(
+        rawCommand,
+        true,
+        -1
+    )
+end)
+
+-- Advanced Notifications
+function showAdvancedNotification(message, sender, Subject, textureDict, iconType, saveToBrief, color)
+    BeginTextCommandThefeedPost('STRING')
+    AddTextComponentSubstringPlayerName(message)
+    ThefeedNextPostBackgroundColor(color)
+    EndTextCommandThefeedPostMessagetext(textureDict, textureDict, false, iconType, sender, subject)
+    EndTextCommandThefeedPostTicker(false, saveToBrief)
+end
+
+RegisterCommand('testAdvancedNotification', function(_, _, rawCommand)
+    showAdvancedNotification(
+        rawCommand,
+        'This is Sender',
+        'This is Subject',
+        'CHAR_TAXI',
+        2,
+        true,
+        150
+    )
+end)
+
 -- Notifications
 
 function showNotification(message, color, flash, saveToBrief)
