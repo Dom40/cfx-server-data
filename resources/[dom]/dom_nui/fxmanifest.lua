@@ -13,8 +13,8 @@ client_scripts {
 ui_page 'nui/nui.html'
 
 files {
-    'nui/nui.html'
-    'nui/style.css'
-    'nui/script.js'
-    'nui/images/*'
+    'nui/nui.html',
+    'nui/style.css',
+    'nui/script.js',
+    'nui/images/*',
 }

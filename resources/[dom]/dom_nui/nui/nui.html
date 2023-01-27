@@ -2,9 +2,29 @@
 <html>
     <head>
         <link rel="stylesheet" href="./style.css">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="./script.js"></script>
     </head>
     <body>
-        <img src="./images/log.jpg" class="profile-photo">
+        <div class="location">
+            <div class="position">
+                My Position: 
+                <br>X = <span id="pos-x-output">N/A</span>
+                <br>Y = <span id="pos-y-output">N/A</span>
+                <br>Z = <span id="pos-z-output">N/A</span>
+            </div>
+            <div class="heading">
+                My Heading: <span id="heading-output">N/A</span>
+            </div>
+            <div class="destinations">
+                <strong>X: </strong><input type="text" id="destination-x" /><br />
+                <strong>Y: </strong><input type="text" id="destination-y" /><br />
+                <strong>Z: </strong><input type="text" id="destination-z" /><br />
+                <button type="button" id="destination-submit">Teleport</button>
+                <button type="button" id="destination-cancel">Cancel</button>
+            </div>
+        </div>
+
+        <img src="./images/logo.png" class="profile-photo">
     </body>
 </html>
