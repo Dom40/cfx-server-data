@@ -2,7 +2,7 @@ RegisterCommand('+openhood', function()
     local playerId = PlayerPedId()
     local playerVehicle = GetVehiclePedIsIn(playerId, false)
 
-    if playervehicle <+ 0 then
+    if playerVehicle <= 0 then
         return
     end
 
@@ -17,11 +17,11 @@ RegisterCommand('+openhood', function()
     end
 end)
 
-RegisterCommand('+opentrunk', function()
+RegisterCommand('+openboot', function()
     local playerId = PlayerPedId()
     local playerVehicle = GetVehiclePedIsIn(playerId, false)
 
-    if playervehicle <+ 0 then
+    if playerVehicle <= 0 then
         return
     end
 
@@ -37,7 +37,7 @@ RegisterCommand('+opentrunk', function()
 end)
 
 RegisterKeyMapping('+openhood', 'Open Vehicle Hood', 'keyboard', 'PAGEUP')
-RegisterKeyMapping('+opentrunk', 'Open Vehicle Boot', 'keyboard', 'PAGEDOWN')
+RegisterKeyMapping('+openboot', 'Open Vehicle Boot', 'keyboard', 'PAGEDOWN')
 
 
 --CreateThread(function()
