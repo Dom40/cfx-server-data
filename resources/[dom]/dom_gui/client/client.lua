@@ -1,15 +1,49 @@
+-- Busy Spinner
+
+function showBusySpinner(message)
+    BeginTextCommandBusyspinnerOn('STRING')
+    AddTextComponentSubstringPlayerName(message)
+    EndTextCommandBusyspinnerOn(5)
+end
+
+function hideBusySpinner()
+    BusyspinnerOff()
+end
+
+RegisterCommand('testSpinner', function(_, _, rawCommand)
+    if rawCommand == 'testSpinner' then
+        hideBusySpinner()
+    else 
+        showBusySpinner(rawCommand)
+    end
+end)
+
+-- Subitles
+function showSubtitle(message, duration)
+    BeginTextCommandPrint('STRING')
+    AddTextComponentString(message)
+    EndTextCommandPrint(duration, true)
+end
+
+RegisterCommand('testSubtitle', function(_, _, rawCommand)
+    showSubtitle(
+        rawCommand,
+        10000
+    )
+end)
+
 -- Markers
 
     RegisterCommand('testMarker', function()
         CreateThread(function()
         local start = GetGameTimer()
     
-    while GetGameTimer() < (start + 10000) do)
+    while GetGameTimer() < (start + 10000) do
         Wait(0)
         local playerCoordinates = GetEntityCoords(PlayerPedId())
 
         DrawMarker(
-            6 , 
+            36 , 
 	        playerCoordinates.x , 
 	        playerCoordinates.y , 
 	        playerCoordinates.z , 
@@ -22,13 +56,13 @@
 	        1.0 , 
 	        1.0 , 
 	        1.0 , 
-	        0 , 
+	        100 , 
 	        0 , 
 	        220 , 
 	        180 , 
 	        true , 
 	        true , 
-	        2
+	        2)
         end      
     end)
 end)
@@ -46,8 +80,7 @@ RegisterCommand('testAlert', function(_, _, rawCommand)
     showAlert(
         rawCommand,
         true,
-        -1
-    )
+        -1)
 end)
 
 -- Advanced Notifications
