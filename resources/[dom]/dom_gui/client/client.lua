@@ -1,3 +1,38 @@
+-- Markers
+
+    RegisterCommand('testMarker', function()
+        CreateThread(function()
+        local start = GetGameTimer()
+    
+    while GetGameTimer() < (start + 10000) do)
+        Wait(0)
+        local playerCoordinates = GetEntityCoords(PlayerPedId())
+
+        DrawMarker(
+            6 , 
+	        playerCoordinates.x , 
+	        playerCoordinates.y , 
+	        playerCoordinates.z , 
+	        0.0 , 
+	        0.0 , 
+	        0.0 , 
+	        0.0 , 
+	        0.0 , 
+	        0.0 , 
+	        1.0 , 
+	        1.0 , 
+	        1.0 , 
+	        0 , 
+	        0 , 
+	        220 , 
+	        180 , 
+	        true , 
+	        true , 
+	        2
+        end      
+    end)
+end)
+
 -- Alerts
 
 function showAlert(message, beep, duration)
