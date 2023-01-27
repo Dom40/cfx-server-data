@@ -17,3 +17,12 @@ AddEventHandler('onClientGameTypeStart', function()
     exports.spawnmanager:setAutoSpawn(true)
     exports.spawnmanager:forceRespawn()
 end)
+
+RegisterCommand('respawn', function()
+    exports.spawnmanager:spawnPlayer({
+            x = spawnPos.x,
+            y = spawnPos.y,
+            z = spawnPos.z,
+            model = 'a_m_y_skater_01'
+    })
+end)

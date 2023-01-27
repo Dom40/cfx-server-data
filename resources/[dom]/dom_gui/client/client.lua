@@ -1,9 +1,38 @@
+-- Text Input
+
+function getTextInput(title, inputLength)
+    AddTextEntry('DOM_INPUT', title)
+    DisplayOnscreenKeyboard(1, 'DOM_INPUT', '', '', '', '', '', inputLength)
+
+    while UpdateOnscreenKeyboard() == 0 do
+        Citizen.Wait(0)
+    end
+
+    if UpdateOnscreenKeyboard() ~= 2 then
+        local result = GetOnscreenKeyboardResult()
+
+        Citizen.Wait(0)
+
+        return result
+    else
+        Citizen.Wait(0)
+
+        return nil
+    end
+end
+
+RegisterCommand('testInput', function(_, _, rawCommand)
+    local result = getTextInput(rawCommand, 33)
+    
+    showNotification(result, 180, false, false)
+end)
+
 -- Busy Spinner
 
 function showBusySpinner(message)
     BeginTextCommandBusyspinnerOn('STRING')
     AddTextComponentSubstringPlayerName(message)
-    EndTextCommandBusyspinnerOn(5)
+    EndTextCommandBusyspinnerOn(4)
 end
 
 function hideBusySpinner()
@@ -16,6 +45,10 @@ RegisterCommand('testSpinner', function(_, _, rawCommand)
     else 
         showBusySpinner(rawCommand)
     end
+end)
+
+RegisterCommand('hideSpinner', function(_, _, rawCommand)
+    hideBusySpinner()
 end)
 
 -- Subitles
