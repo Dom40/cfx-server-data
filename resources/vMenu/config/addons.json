@@ -5,11 +5,14 @@
     "dukes",
     "couchcar",
     "caddy",
-    "twincamcus"
+    "twincamcus",
+    "nkcoquette",
+    "nm_bolide",
+    "casco"
   ],
   "peds": [
-    "addonpedname1",
-    "addonpedname2"
+    "Moon Knight",
+    "Mr Bean"
   ],
   "weapons": [
     "addonweaponname1",
